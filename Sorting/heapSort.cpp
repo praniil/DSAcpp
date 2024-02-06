@@ -20,8 +20,8 @@ int Delete(int heap[], int length)
     int deleted = heap[1];
     int temp = heap[length];
     heap[1] = temp;
+    heap[length] = deleted;
     int i = 1, j = i * 2;
-    val = heap[1];
     while (j < length - 1)
     {
         if (heap[j + 1] > heap[j])
@@ -41,7 +41,7 @@ int Delete(int heap[], int length)
             break;
         }
     }
-    return val;
+    return deleted;
 }
 
 int main()
@@ -53,10 +53,21 @@ int main()
         Insert(heapArray, i);
     }
 
-    printf("Deleted vaule is %d\n", Delete(heapArray, length - 1));
+    // printf("Deleted vaule is %d\n", Delete(heapArray, length - 1));
 
+    // for (int i = 1; i <= length - 1; i++)
+    // {
+    //     printf("%d \n", heapArray[i]);
+    // }
+
+    for (int i = length - 1; i > 1; i--)
+    {
+        Delete(heapArray, i);
+    }
+
+    //Sorted array
     for (int i = 1; i <= length - 1; i++)
     {
-        printf("%d \n", heapArray[i]);
+        printf("%d \t", heapArray[i]);
     }
 }
