@@ -16,7 +16,6 @@ void Insert(int heap[], int index)
 
 int Delete(int heap[], int length)
 {
-    int val;
     int deleted = heap[1];
     int temp = heap[length];
     heap[1] = temp;
